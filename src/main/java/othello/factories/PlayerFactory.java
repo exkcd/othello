@@ -1,6 +1,6 @@
 package main.java.othello.factories;
 
-import main.java.othello.model.Piece;
+import ain.java.othello.model.Piece;
 import main.java.othello.model.Player;
 
 public interface PlayerFactory {

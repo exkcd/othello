@@ -1,8 +1,8 @@
-package main.java.othello.command;
+package othello.command;
 
-public interface Command {
+public interface ICommand {
 
-    // Julie, do the thing!
+    // Zhu Li, do the thing!
     void execute();
 
     // Revert to previous states

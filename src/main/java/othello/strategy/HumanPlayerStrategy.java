@@ -1,4 +1,23 @@
-package main.java.othello.strategy;
+package othello.strategy;
 
-public class HumanPlayerStrategy {
+import othello.model.Board;
+import othello.model.Piece;
+import othello.model.Position;
+
+public class HumanPlayerStrategy implements PlayerStrategy {
+    private Position playerMove;
+
+    @Override
+    public Position chooseMove(Board board, Piece piece) {
+        return playerMove;
+    }
+
+    public void setPlayerMove(Position move) {
+        this.playerMove = move;
+    }
+
+    @Override
+    public String getStrategyName() {
+        return "Hooman";
+    }
 }

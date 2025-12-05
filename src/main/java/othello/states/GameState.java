@@ -1,6 +1,4 @@
-package main.java.othello.states;
-
-import main.java.othello.model.Game;
+package othello.states;
 
 public interface GameState {
 

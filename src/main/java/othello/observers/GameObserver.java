@@ -1,6 +1,11 @@
-package main.java.othello.observers;
+package othello.observers;
 
-public interface GameObserver {
+import othello.events.EventType;
 
-    void update(GameEvents events, String message);
+public class GameObserver implements IObserver {
+
+    @Override
+    public void update(String events) {
+
+    }
 }

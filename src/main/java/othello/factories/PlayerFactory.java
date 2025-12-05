@@ -1,16 +1,14 @@
-package main.java.othello.factories;
+package othello.factories;
 
-import ain.java.othello.model.Piece;
-import main.java.othello.model.Player;
+import othello.model.Piece;
+import othello.players.HumanPlayer;
+import othello.strategy.HumanPlayerStrategy;
 
-public interface PlayerFactory {
+public class PlayerFactory {
+    public HumanPlayer createHumanPlayer(String name, Piece piece) {
+        return new HumanPlayer(name, piece, new HumanPlayerStrategy());
+    }
 
-    Player createHumanPlayer(Piece piece);
-
-    Player createEasyAIPlayer(Piece piece);
-
-    // TODO: add more players
-
-    Player createPlayer(String type, Piece piece);
+    // TODO: Add AI players
 
 }

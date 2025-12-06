@@ -36,14 +36,11 @@ public class OthelloUI extends JFrame {
         add(statusPanel, BorderLayout.SOUTH);
 
 
-        resetButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                game.resetGame();
+        resetButton.addActionListener(e -> {
+            game.resetGame();
 
-                updateStatus();
-                boardPanel.repaint();
-            }
+            updateStatus();
+            boardPanel.repaint();
         });
         pack();
         setLocationRelativeTo(null);
@@ -84,7 +81,7 @@ public class OthelloUI extends JFrame {
         }
 
         @Override
-        protected Position doInBackground() throws Exception{
+        protected Position doInBackground(){
             return randomAIPlayer.makeMove(game.getBoard());
         }
 

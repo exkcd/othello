@@ -153,4 +153,8 @@ public class Board {
         }
         return sb.toString();
     }
+
+    public void resetBoard(){
+        initBoard();
+    }
 }

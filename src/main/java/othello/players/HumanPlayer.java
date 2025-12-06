@@ -3,7 +3,6 @@ package othello.players;
 import othello.model.Board;
 import othello.model.Piece;
 import othello.model.Position;
-import othello.strategy.HumanPlayerStrategy;
 import othello.strategy.PlayerStrategy;
 
 public class HumanPlayer implements Player {
@@ -35,6 +34,11 @@ public class HumanPlayer implements Player {
     @Override
     public String getStrategyType() {
         return strategy.getStrategyName();
+    }
+
+    @Override
+    public Boolean isHuman(){
+        return true;
     }
 
     public PlayerStrategy getStrategy() {

@@ -38,6 +38,10 @@ public class RandomAIPlayer implements Player {
         return strategy.getStrategyName();
     }
 
+    public Boolean isHuman(){
+        return false;
+    }
+
     public PlayerStrategy getStrategy() {
         return strategy;
     }

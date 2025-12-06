@@ -13,4 +13,6 @@ public interface Player {
     String getName();
 
     String getStrategyType();
+
+    Boolean isHuman();
 }

@@ -58,7 +58,6 @@ public class Game {
             eventBus.postMessage(EventType.TURN_CHANGED, "Now it's " + currentPlayer.getName() + "'s turn");
             return;
         }
-
         List<Position> currentMoves = board.getValidMoves(currentPlayer.getPiece());
         if (!currentMoves.isEmpty()) {
             eventBus.postMessage(EventType.PLAYER_SKIP, nextPlayer.getName() + " has no valid moves. Skipping turn.");
@@ -115,5 +114,15 @@ public class Game {
 
     public int getScore(Piece piece) {
         return board.countPieces(piece);
+    }
+
+    public void resetGame(){
+        board.resetBoard();
+
+        currentPlayer = player1;
+        isOver = false;
+        winner = null;
+
+        eventBus.postMessage(EventType.GAME_STARTED, "Game reset.");
     }
 }

@@ -16,6 +16,10 @@ public class HumanPlayerStrategy implements PlayerStrategy {
         this.playerMove = move;
     }
 
+    public void clearPlayerMove() {
+        this.playerMove = null;
+    }
+
     @Override
     public String getStrategyName() {
         return "Hooman";

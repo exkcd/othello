@@ -3,15 +3,15 @@ package othello.players;
 import othello.model.Board;
 import othello.model.Piece;
 import othello.model.Position;
-import othello.strategy.HumanPlayerStrategy;
 import othello.strategy.PlayerStrategy;
 
-public class HumanPlayer implements Player {
+
+public class RandomAIPlayer implements Player {
     private final String name;
     private final Piece piece;
     private final PlayerStrategy strategy;
 
-    public HumanPlayer(String name, Piece piece, PlayerStrategy strategy) {
+    public RandomAIPlayer(String name, Piece piece, PlayerStrategy strategy) {
         this.name = name;
         this.piece = piece;
         this.strategy = strategy;
@@ -25,6 +25,7 @@ public class HumanPlayer implements Player {
     @Override
     public Piece getPiece() {
         return piece;
+
     }
 
     @Override

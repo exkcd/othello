@@ -12,7 +12,7 @@ public class EventBus {
 
     private final Map<EventType, List<IObserver>> observers = new HashMap<>();
 
-    private EventBus() {
+    public EventBus() {
         for (EventType eventType : EventType.values()) {
             observers.put(eventType, new ArrayList<>());
         }
@@ -44,10 +44,16 @@ public class EventBus {
         }
     }
 
-    public void postMessage (EventType eventType, String eventDescription) {
+    public void postMessage (EventType eventType, Object data) {
         List<IObserver> observerList = observers.get(eventType);
         for (IObserver observer : observerList) {
-            observer.update(eventDescription);
+            observer.update(data);
+        }
+    }
+
+    public void clearAll() {
+        for (List<IObserver> observerList : observers.values()) {
+            observerList.clear();
         }
     }
 }

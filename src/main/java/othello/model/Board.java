@@ -1,5 +1,8 @@
 package othello.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Board {
     public static final int SIZE = 8; // 8x8 board, that's most othello boards
     private static final int[][] DIRECTIONS = { // where the pieces can go
@@ -32,7 +35,6 @@ public class Board {
         grid[4][3] = Piece.BLACK;
         grid[4][4] = Piece.WHITE;
 
-
     }
 
     public int getSize() {
@@ -59,11 +61,39 @@ public class Board {
 
         for (int[] dir : DIRECTIONS) {
             if (wouldFlipInDirection(pos, piece, dir[0], dir[1])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean makeMove(Position pos, Piece piece) {
+        if (!isValidMove(pos, piece)) {
+            return false;
+        }
+        setPiece(pos, piece);
+
+        for (int[] dir : DIRECTIONS) {
+            if (wouldFlipInDirection(pos, piece, dir[0], dir[1])) {
                 flipInDirection(pos, piece, dir[0], dir[1]);
             }
         }
         return true;
     }
+
+    public List<Position> getValidMoves(Piece piece) {
+        List<Position> moves = new ArrayList<>();
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                Position pos = new Position(i, j);
+                if (isValidMove(pos, piece)) {
+                    moves.add(pos);
+                }
+            }
+        }
+        return moves;
+    }
+
 
     private boolean wouldFlipInDirection(Position pos, Piece piece, int rowOff, int colOff) {
         Position current = pos.offset(rowOff, colOff);
